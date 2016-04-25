@@ -1,4 +1,4 @@
-# MailOtto v1.0
+# MailOtto v1.0.2
 A mail box.
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/drakeet/MailOtto/blob/master/LICENSE)
@@ -8,7 +8,7 @@ A mail box.
 ### Usage
 
 ```groovy
-compile 'me.drakeet.mailotto:mailotto:1.0.1'
+compile 'me.drakeet.mailotto:mailotto:1.0.2'
 ```
 
 Mail
@@ -84,6 +84,13 @@ Thanks
 ------
 
 [square/otto](https://github.com/square/otto)
+
+
+Changelog
+---------
+
+v1.0.2
+- Remove the `<application ../>` of `library/src/main/AndroidManifest.xml`.
 
 License
 -------
