@@ -11,8 +11,7 @@ A mail box.
 compile 'me.drakeet.mailotto:mailotto:1.1.0'
 ```
 
-Mail
-----
+##### Mail
 
 ```java
 public class Mail {
@@ -35,22 +34,19 @@ public class Mail {
 }
 ```
 
-Post mails
-----------
+##### Post mails
 
 ```java
 Mailbox.getInstance().post(mail);
 ```
 
-AtHome, and the postman will give you the mails.
-------------------------------------------------
+##### AtHome, and the postman will give you the mails.
 
 ```java
 Mailbox.getInstance().atHome(this);
 ```
 
-When received a mail
---------------------
+##### When received a mail
 
 ```java
 @OnMailReceived public void onDearMailReceived(Mail mail) {
@@ -60,36 +56,34 @@ When received a mail
 }
 ```
 
-Leave
------
+##### Leave
 
 ```java
 Mailbox.getInstance().leave(this);
 ```
 
 
-Sample
-------
+#### Sample
 
 There is an example of using MailOtto to do pre loading. It is very suitable for pre loading, nice lol.
 
-这是一个使用 MailOtto 做预加载的示例。它非常适合做预加载，很棒 lol. 相关文章：[使用 MailOtto 做完美预加载](https://drakeet.me/mailotto-sample)
+这是一个使用 MailOtto 做预加载的示例。它非常适合做预加载，很棒。 相关文章：[使用 MailOtto 做完美预加载](https://drakeet.me/mailotto-sample)
 
 https://github.com/drakeet/MailOtto/tree/master/sample/src/main/java/me/drakeet/mailotto/demo
 
-https://github.com/drakeet/MailOtto/releases
+[Sample APK](sample.apk)
 
 
-Thanks
-------
+#### Thanks
 
 [square/otto](https://github.com/square/otto)
 
 
-Changelog
----------
+#### Changelog
 
 https://github.com/drakeet/MailOtto/releases
+
+
 
 License
 -------
