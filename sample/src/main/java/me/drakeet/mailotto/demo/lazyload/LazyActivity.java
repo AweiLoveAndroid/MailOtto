@@ -28,8 +28,7 @@ public class LazyActivity extends AppCompatActivity {
 
 
     public static Intent newIntent(Context context) {
-        Intent intent = new Intent(context, LazyActivity.class);
-        return intent;
+        return new Intent(context, LazyActivity.class);
     }
 
 
@@ -138,8 +137,8 @@ public class LazyActivity extends AppCompatActivity {
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
+        SectionsPagerAdapter(FragmentManager manager) {
+            super(manager);
         }
 
 

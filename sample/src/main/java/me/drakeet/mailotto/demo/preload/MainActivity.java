@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         WeakReference<TextView> textViewPreference;
 
 
-        public InnerRunnable(View textView) {
+        InnerRunnable(View textView) {
             this.textViewPreference = new WeakReference<>((TextView) textView);
         }
 

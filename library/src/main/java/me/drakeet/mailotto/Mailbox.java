@@ -16,7 +16,7 @@
 
 package me.drakeet.mailotto;
 
-import java.lang.reflect.InvocationTargetException;
+import android.util.Log;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
@@ -31,13 +31,15 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class Mailbox {
 
+    private static final String TAG = "MailOtto";
+
     public static final String DEFAULT_IDENTIFIER = "default";
 
     /**
      * All registered mail handlers, indexed by mail.to.
      */
     private final ConcurrentMap<Class<?>, MailHandler> currentAtHomeHandlerByClass
-            = new ConcurrentHashMap<>();
+        = new ConcurrentHashMap<>();
 
     private volatile static Mailbox instance = null;
 
@@ -46,7 +48,7 @@ public class Mailbox {
     private final HandlerFinder handlerFinder;
 
     private final ThreadLocal<LinkedList<Mail>> mailsToDispatch
-            = new ThreadLocal<LinkedList<Mail>>() {
+        = new ThreadLocal<LinkedList<Mail>>() {
         @Override protected LinkedList<Mail> initialValue() {
             return new LinkedList<>();
         }
@@ -122,9 +124,9 @@ public class Mailbox {
         MailHandler foundHandler = handlerFinder.findOnMailReceived(object);
         MailHandler cacheHandler = getCacheCurrentAtHomeHandler(object.getClass());
         if (cacheHandler == null || !cacheHandler.equals(foundHandler)) {
-            throw new IllegalArgumentException(
-                    "Missing mail handler for an annotated method. Is " + object.getClass() +
-                            " atHome?");
+            Log.e(TAG, "Missing mail handler for an annotated method. Is " + object.getClass() +
+                " atHome?");
+            return;
         }
 
         if (foundHandler.equals(cacheHandler)) {
@@ -182,19 +184,9 @@ public class Mailbox {
     protected void dispatch(Mail mail, MailHandler wrapper) {
         try {
             wrapper.handleMail(mail);
-        } catch (InvocationTargetException e) {
-            throwRuntimeException(
-                    "Could not dispatch mail: " + mail.getClass() + " to handler " + wrapper, e);
-        }
-    }
-
-
-    private static void throwRuntimeException(String msg, InvocationTargetException e) {
-        Throwable cause = e.getCause();
-        if (cause != null) {
-            throw new RuntimeException(msg + ": " + cause.getMessage(), cause);
-        } else {
-            throw new RuntimeException(msg + ": " + e.getMessage(), e);
+        } catch (Exception e) {
+            Log.e(TAG, "Could not dispatch mail: " + mail.getClass() + " to handler " + wrapper);
+            e.printStackTrace();
         }
     }
 

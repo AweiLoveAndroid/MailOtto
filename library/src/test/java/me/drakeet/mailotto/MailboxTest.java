@@ -19,7 +19,7 @@ public class MailboxTest extends TestCase {
     }
 
 
-    @OnMailReceived public void onDearMailRecevied(Mail mail) {
+    @OnMailReceived public void onDearMailReceived(Mail mail) {
         System.out.println("on subscribe.");
         assertNotNull(mail);
         assertEquals(CONTENT, mail.content);
