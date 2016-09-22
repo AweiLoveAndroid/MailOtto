@@ -8,7 +8,7 @@ A mail box.
 ### Usage
 
 ```groovy
-compile 'me.drakeet.mailotto:mailotto:1.0.2'
+compile 'me.drakeet.mailotto:mailotto:1.1.20'
 ```
 
 Mail
@@ -89,8 +89,7 @@ Thanks
 Changelog
 ---------
 
-v1.0.2
-- Remove the `<application ../>` of `library/src/main/AndroidManifest.xml`.
+https://github.com/drakeet/MailOtto/releases
 
 License
 -------
