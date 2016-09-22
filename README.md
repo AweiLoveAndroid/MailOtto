@@ -8,7 +8,7 @@ A mail box.
 ### Usage
 
 ```groovy
-compile 'me.drakeet.mailotto:mailotto:1.1.20'
+compile 'me.drakeet.mailotto:mailotto:1.1.0'
 ```
 
 Mail
